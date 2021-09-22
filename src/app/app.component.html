@@ -1,0 +1,12 @@
+<hello name="{{ name }}"></hello>
+<mat-form-field appearance="fill">
+  <mat-label>Select an Icon</mat-label>
+  <mat-select [formControl]="selectedIcon">
+    <mat-option *ngFor="let icon of icons" [value]="icon">
+      {{ icon }}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="selectedIcon.hasError('required')">Please choose an icon</mat-error>
+</mat-form-field>&nbsp;
+<app-dynamic-icon [iconValue]="selectedIcon.value"></app-dynamic-icon>
+<span class="version-info">Current Version {{ version }}</span>
